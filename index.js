@@ -1,4 +1,4 @@
-import fs from 'fs'; // core
+import fs from 'fs/promises'; // core
 
 import chalk from 'chalk'; // de terceiro
 
@@ -9,6 +9,8 @@ console.log(chalk.rgb(102, 0, 153).bold('Estou na Vivo!'));
 console.log(`Node foi criado ${criacaoNode}.`);
 
 let linhas = [];
-const data = fs.readFileSync('por-que-a-vivo.txt', 'utf8');
-linhas = data.split('\n'); 
-console.log(linhas.length);
+fs.readFile('por-que-a-vivo.txt', 'utf8')
+  .then(data => {
+    linhas = data.split('\n'); 
+    console.log(linhas.length);
+  });
