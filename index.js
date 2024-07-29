@@ -11,4 +11,11 @@ console.log(`Node foi criado ${criacaoNode}.`);
 let linhas = [];
 const data = await fs.readFile('por-que-a-vivo.txt', 'utf8')
 linhas = data.split('\n'); 
-console.log(linhas.length);
+linhas.filter(linha => linha.trim().length != 0)
+  .forEach((linha, i) => {
+    if (i % 2 == 0) {
+      console.log(chalk.rgb(102, 0, 153).bold(linha));
+    } else {
+      console.log(chalk.gray.bold(linha));
+    }
+  });
