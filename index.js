@@ -11,5 +11,5 @@ console.log(`Node foi criado ${criacaoNode}.`);
 let linhas = [];
 fs.readFile('por-que-a-vivo.txt', 'utf8', (err, data) => {
   linhas = data.split('\n'); 
+  console.log(linhas.length);
 });
-console.log(linhas.length);
