@@ -8,6 +8,8 @@ console.log(chalk.rgb(102, 0, 153).bold('Estou na Vivo!'));
 
 console.log(`Node foi criado ${criacaoNode}.`);
 
+let linhas = [];
 fs.readFile('por-que-a-vivo.txt', 'utf8', (err, data) => {
-  console.log(data); 
+  linhas = data.split('\n'); 
 });
+console.log(linhas);
