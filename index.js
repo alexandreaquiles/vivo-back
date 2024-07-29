@@ -14,3 +14,14 @@ motivos.forEach(item => {
   console.log(chalk.rgb(102, 0, 153).bold(item.title));
   console.log(chalk.gray.bold(item.description));
 });
+
+console.log();
+
+const dataPlanos = await fs.readFile('planos.json', 'utf8')
+const planos = JSON.parse(dataPlanos);
+planos.forEach(item => {
+  console.log(chalk.rgb(102, 0, 153).bold(item.title));
+  console.log(chalk.gray.bold(item.price));
+});
+
+console.log();
