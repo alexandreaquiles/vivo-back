@@ -8,14 +8,9 @@ console.log(chalk.rgb(102, 0, 153).bold('Estou na Vivo!'));
 
 console.log(`Node foi criado ${criacaoNode}.`);
 
-let linhas = [];
-const data = await fs.readFile('por-que-a-vivo.txt', 'utf8')
-linhas = data.split('\n'); 
-linhas.filter(linha => linha.trim().length != 0)
-  .forEach((linha, i) => {
-    if (i % 2 == 0) {
-      console.log(chalk.rgb(102, 0, 153).bold(linha));
-    } else {
-      console.log(chalk.gray.bold(linha));
-    }
-  });
+const data = await fs.readFile('por-que-a-vivo.json', 'utf8')
+const motivos = JSON.parse(data);
+motivos.forEach(item => {
+  console.log(chalk.rgb(102, 0, 153).bold(item.title));
+  console.log(chalk.gray.bold(item.description));
+});
