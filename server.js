@@ -17,7 +17,12 @@ app.get('/api/porque-a-vivo/:titulo', async (req, res) => {
     motivos = motivos.filter(m => m.title.includes(filtro));
   }
 
-  res.json(motivos);
+  if (motivos.length) {
+    res.json(motivos);
+  } else {
+    res.status(404).send(`Não encontrado: ${filtro}`);
+  }
+
 });
 
 app.listen(port, () => {
