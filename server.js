@@ -25,6 +25,12 @@ app.get('/api/porque-a-vivo/:titulo', async (req, res) => {
 
 });
 
+app.get('/api/planos', async (req, res) => {
+  const data = await fs.readFile('planos.json', 'utf-8');
+  const planos = JSON.parse(data);
+  res.json(planos);
+});
+
 app.listen(port, () => {
   console.log(`Aplicação rodando em http://localhost:${port}`);
 });

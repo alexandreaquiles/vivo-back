@@ -72,6 +72,47 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "/api/porque-a-vivo/batata",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/porque-a-vivo/batata",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"porque-a-vivo",
+						"batata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/planos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/planos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"planos"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
