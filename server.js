@@ -8,11 +8,11 @@ app.get('/', (req, res) => {
   res.send('Estou na Vivo!');
 });
 
-app.get('/api/porque-a-vivo', async (req, res) => {
+app.get('/api/porque-a-vivo/:titulo', async (req, res) => {
   const data = await fs.readFile('por-que-a-vivo.json', 'utf8');
   let motivos = JSON.parse(data);
 
-  const filtro = req.query.titulo;
+  const filtro = req.params.titulo;
   if (filtro) {
     motivos = motivos.filter(m => m.title.includes(filtro));
   }

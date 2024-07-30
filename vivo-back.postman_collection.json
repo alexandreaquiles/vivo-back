@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "http://localhost:3000/api/porque-a-vivo",
+			"name": "/api/porque-a-vivo",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -21,6 +21,53 @@
 					"path": [
 						"api",
 						"porque-a-vivo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/porque-a-vivo?titulo=sinal",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/porque-a-vivo?titulo=sinal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"porque-a-vivo"
+					],
+					"query": [
+						{
+							"key": "titulo",
+							"value": "sinal"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/porque-a-vivo/sinal",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/porque-a-vivo/sinal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"porque-a-vivo",
+						"sinal"
 					]
 				}
 			},
