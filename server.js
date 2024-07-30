@@ -8,11 +8,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/porque-a-vivo', (req, res) => {
-  const data =
-    [{
-      title: 'Segreados da Qualidade',
-      description: "Tecnologia de ponta e atendimento eficaz."
-    }];
+  const data = await fs.readFile('por-que-a-vivo.json', 'utf8');
   res.json(data);
 });
 
