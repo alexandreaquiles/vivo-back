@@ -10,7 +10,8 @@ app.get('/', (req, res) => {
 
 app.get('/api/porque-a-vivo', async (req, res) => {
   const data = await fs.readFile('por-que-a-vivo.json', 'utf8');
-  res.json(data);
+  const motivos = JSON.parse(data);
+  res.json(motivos);
 });
 
 app.listen(port, () => {
