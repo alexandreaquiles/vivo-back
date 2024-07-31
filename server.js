@@ -30,6 +30,25 @@ app.get('/api/porque-a-vivo/:titulo', async (req, res) => {
 
 });
 
+app.post('/api/porque-a-vivo', async (req, res) => {
+  const data = await fs.readFile('por-que-a-vivo.json', 'utf8');
+  const motivos = JSON.parse(data);
+
+  const novoMotivo = req.body;
+
+  if (!novoMotivo || !novoMotivo.title || !novoMotivo.description) {
+    console.log(novoMotivo);
+    res.sendStatus(400);
+  } else {
+    motivos.push(novoMotivo);
+
+    const dataParaGravar = JSON.stringify(motivos);
+    await fs.writeFile('por-que-a-vivo.json', dataParaGravar, 'utf8');
+    res.sendStatus(201);
+  }
+
+});
+
 app.listen(port, () => {
   console.log(`Aplicação rodando em http://localhost:${port}`);
 });
