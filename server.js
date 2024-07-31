@@ -4,6 +4,11 @@ import fs from 'fs/promises';
 const app = express();
 const port = 3000;
 
+app.use((req, res, next) => {
+  console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
+  next();
+});
+
 app.get('/', (req, res) => {
   res.send('Estou na Vivo!');
 });
