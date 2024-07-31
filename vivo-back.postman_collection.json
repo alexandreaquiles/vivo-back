@@ -7,6 +7,25 @@
 	},
 	"item": [
 		{
+			"name": "/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "/api/porque-a-vivo",
 			"request": {
 				"method": "GET",
@@ -68,6 +87,76 @@
 						"api",
 						"porque-a-vivo",
 						"sinal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/porque-a-vivo/batata",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/porque-a-vivo/batata",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"porque-a-vivo",
+						"batata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/planos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/planos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"planos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/porque-a-vivo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Atendimento personalizado e suporte 24/7\",\n    \"description\": \"Oferecemos atendimento personalizado e suporte técnico disponível 24 horas por dia, 7 dias por semana, para garantir que você tenha a melhor experiência possível com nossos serviços.\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/porque-a-vivo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"porque-a-vivo"
 					]
 				}
 			},
