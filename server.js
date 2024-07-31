@@ -57,6 +57,31 @@ app.post('/api/porque-a-vivo', async (req, res, next) => {
 
 });
 
+app.get('/api/planos', async (req, res) => {
+  const data = await fs.readFile('planos.json', 'utf-8');
+  const planos = JSON.parse(data);
+  res.json(planos);
+});
+
+app.post('/api/planos', async (req, res) => {
+  const data = await fs.readFile('planos.json', 'utf8');
+  const planos = JSON.parse(data);
+
+  const novoPlano = req.body;
+
+  if (!novoPlano || !novoPlano.title || !novoPlano.price || !novoPlano.details || !novoPlano.offer) {
+    console.log(novoPlano);
+    res.sendStatus(400);
+  } else {
+    planos.push(novoPlano);
+
+    const dataParaGravar = JSON.stringify(planos);
+    await fs.writeFile('planos.json', dataParaGravar, 'utf8');
+    res.sendStatus(201);
+  }
+
+});
+
 app.use((err, req, res, next) => {
   console.error(err);
   res.status(500).send('Erro inesperado :/');

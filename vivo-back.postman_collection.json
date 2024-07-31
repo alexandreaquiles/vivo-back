@@ -161,6 +161,35 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "/api/planos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"300 Mega\",\n    \"price\": \"R$89,90/mês\",\n    \"details\": [\n      \"Internet Fibra 300 Mbps\",\n      \"Download até 300 Mbps\",\n      \"Upload até 150 Mbps\",\n      \"Vários apps inclusos*\",\n      \"Ideal para pequenas residências\"\n    ],\n    \"offer\": \"Oferta para novos clientes: 3 meses grátis\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/planos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"planos"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
