@@ -9,11 +9,13 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(express.json());
+
 app.get('/', (req, res) => {
   res.send('Estou na Vivo!');
 });
 
-app.get('/api/porque-a-vivo/:titulo', async (req, res) => {
+app.get('/api/porque-a-vivo/:titulo?', async (req, res) => {
   const data = await fs.readFile('por-que-a-vivo.json', 'utf8');
   let motivos = JSON.parse(data);
 
