@@ -15,24 +15,30 @@ app.get('/', (req, res) => {
   res.send('Estou na Vivo!');
 });
 
-app.get('/api/porque-a-vivo/:titulo?', async (req, res) => {
-  const data = await fs.readFile('por-que-a-vivo.json', 'utf8');
-  let motivos = JSON.parse(data);
+app.get('/api/porque-a-vivo/:titulo?', async (req, res, next) => {
 
-  const filtro = req.params.titulo;
-  if (filtro) {
-    motivos = motivos.filter(m => m.title.includes(filtro));
-  }
-
-  if (motivos.length) {
-    res.json(motivos);
-  } else {
-    res.status(404).send(`Não encontrado: ${filtro}`);
+  try {
+    const data = await fs.readFile('diretorio-inexistente/por-que-a-vivo.json', 'utf8');
+    let motivos = JSON.parse(data);
+  
+    const filtro = req.params.titulo;
+    if (filtro) {
+      motivos = motivos.filter(m => m.title.includes(filtro));
+    }
+  
+    if (motivos.length) {
+      res.json(motivos);
+    } else {
+      res.status(404).send(`Não encontrado: ${filtro}`);
+    }
+  
+  } catch(error) {
+    next(error);
   }
 
 });
 
-app.post('/api/porque-a-vivo', async (req, res) => {
+app.post('/api/porque-a-vivo', async (req, res, next) => {
   const data = await fs.readFile('por-que-a-vivo.json', 'utf8');
   const motivos = JSON.parse(data);
 
@@ -49,6 +55,11 @@ app.post('/api/porque-a-vivo', async (req, res) => {
     res.sendStatus(201);
   }
 
+});
+
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).send('Erro inesperado :/');
 });
 
 app.listen(port, () => {
