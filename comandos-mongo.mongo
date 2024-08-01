@@ -82,3 +82,113 @@ db.motivos.find({}, { title: 1 })
 #     title: 'Atendimento personalizado e suporte 24/7'
 #   }
 # ]
+
+use vivoDb
+# switched to db vivoDb
+
+db.planos.insertMany([
+   {
+     "title": "500 Mega",
+     "price": "R$120,00/mês",
+     "details": [
+       "Internet Fibra 500 Mbps",
+       "Download até 500 Mbps",
+       "Upload até 250 Mbps",
+       "Vários apps inclusos*"
+     ],
+     "offer": "Oferta imperdível: R$30 OFF"
+   },
+   {
+     "title": "700 Mega",
+     "price": "R$150,00/mês",
+     "details": [
+       "Internet Fibra 700 Mbps",
+       "Download até 700 Mbps",
+       "Upload até 350 Mbps",
+       "Vários apps inclusos*"
+     ],
+     "offer": "Oferta imperdível: R$50 OFF"
+   },
+   {
+     "title": "1 Giga",
+     "price": "R$500,00/mês",
+     "details": [
+       "Internet Fibra 1 Gbps",
+       "Download até 1 Gbps",
+       "Upload até 500 Mbps",
+       "Vários apps inclusos*"
+     ]
+   },
+   {
+     "title": "2 Gigas",
+     "price": "R$750,00/mês",
+     "details": [
+       "Internet Fibra 2 Gbps",
+       "Download até 2 Gbps",
+       "Upload até 1 Gbps",
+       "Vários apps inclusos*"
+     ]
+   }
+ ])
+# {
+#   acknowledged: true,
+#   insertedIds: {
+#     '0': ObjectId("66abe3ed4b7e20781055d875"),
+#     '1': ObjectId("66abe3ed4b7e20781055d876"),
+#     '2': ObjectId("66abe3ed4b7e20781055d877"),
+#     '3': ObjectId("66abe3ed4b7e20781055d878")
+#   }
+# }
+
+db.planos.find()
+# [
+#   {
+#     _id: ObjectId("66abe3ed4b7e20781055d875"),
+#     title: '500 Mega',
+#     price: 'R$120,00/mês',
+#     details: [
+#       'Internet Fibra 500 Mbps',
+#       'Download até 500 Mbps',
+#       'Upload até 250 Mbps',
+#       'Vários apps inclusos*'
+#     ],
+#     offer: 'Oferta imperdível: R$30 OFF'
+#   },
+#   {
+#     _id: ObjectId("66abe3ed4b7e20781055d876"),
+#     title: '700 Mega',
+#     price: 'R$150,00/mês',
+#     details: [
+#       'Internet Fibra 700 Mbps',
+#       'Download até 700 Mbps',
+#       'Upload até 350 Mbps',
+#       'Vários apps inclusos*'
+#     ],
+#     offer: 'Oferta imperdível: R$50 OFF'
+#   },
+#   {
+#     _id: ObjectId("66abe3ed4b7e20781055d877"),
+#     title: '1 Giga',
+#     price: 'R$500,00/mês',
+#     details: [
+#       'Internet Fibra 1 Gbps',
+#       'Download até 1 Gbps',
+#       'Upload até 500 Mbps',
+#       'Vários apps inclusos*'
+#     ]
+#   },
+#   {
+#     _id: ObjectId("66abe3ed4b7e20781055d878"),
+#     title: '2 Gigas',
+#     price: 'R$750,00/mês',
+#     details: [
+#       'Internet Fibra 2 Gbps',
+#       'Download até 2 Gbps',
+#       'Upload até 1 Gbps',
+#       'Vários apps inclusos*'
+#     ]
+#   }
+# ]
+
+db.getCollectionNames()
+# [ 'planos', 'motivos' ]
