@@ -6,8 +6,7 @@ import { MongoClient } from 'mongodb';
 const uri = "mongodb://admin:secret@127.0.0.1:27017/?authSource=admin";
 const client = new MongoClient(uri);
 const vivoDb = client.db('vivoDb');
-const motivos = vivoDb.collection('motivos');
-console.log(await motivos.find().toArray());
+const motivosColl = vivoDb.collection('motivos');
 
 const app = express();
 const port = 3000;
@@ -27,8 +26,7 @@ app.get('/', (req, res) => {
 app.get('/api/porque-a-vivo/:titulo?', async (req, res, next) => {
 
   try {
-    const data = await fs.readFile('por-que-a-vivo.json', 'utf8');
-    let motivos = JSON.parse(data);
+    let motivos = await motivosColl.find().toArray();
   
     const filtro = req.params.titulo;
     if (filtro) {
