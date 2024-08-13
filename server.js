@@ -49,8 +49,6 @@ app.get('/api/porque-a-vivo/:titulo?', async (req, res, next) => {
 });
 
 app.post('/api/porque-a-vivo', async (req, res, next) => {
-  const data = await fs.readFile('por-que-a-vivo.json', 'utf8');
-  const motivos = JSON.parse(data);
 
   const novoMotivo = req.body;
 
@@ -58,10 +56,7 @@ app.post('/api/porque-a-vivo', async (req, res, next) => {
     console.log(novoMotivo);
     res.sendStatus(400);
   } else {
-    motivos.push(novoMotivo);
-
-    const dataParaGravar = JSON.stringify(motivos);
-    await fs.writeFile('por-que-a-vivo.json', dataParaGravar, 'utf8');
+    await motivosColl.insertOne(novoMotivo);
     res.sendStatus(201);
   }
 
