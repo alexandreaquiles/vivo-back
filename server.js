@@ -31,7 +31,7 @@ app.get('/api/porque-a-vivo/:titulo?', async (req, res, next) => {
 
     let filtroBd = {};
     if (filtro) {
-      filtroBd = { title: { $regex: new RegExp(filtro) } };
+      filtroBd = { $text: { $search: filtro } };
     }
 
     let motivos = await motivosColl.find( filtroBd ).toArray();

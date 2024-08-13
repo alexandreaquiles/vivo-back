@@ -82,3 +82,6 @@ db.motivos.find({}, { title: 1 })
 #     title: 'Atendimento personalizado e suporte 24/7'
 #   }
 # ]
+
+vivoDb> db.motivos.createIndex( { title: 'text'} )
+title_text
