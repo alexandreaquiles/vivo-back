@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 app.get('/api/porque-a-vivo/:titulo?', async (req, res, next) => {
 
   try {
-    const data = await fs.readFile('diretorio/por-que-a-vivo.json', 'utf8');
+    const data = await fs.readFile('por-que-a-vivo.json', 'utf8');
     let motivos = JSON.parse(data);
   
     const filtro = req.params.titulo;
