@@ -26,12 +26,15 @@ app.get('/', (req, res) => {
 app.get('/api/porque-a-vivo/:titulo?', async (req, res, next) => {
 
   try {
-    let motivos = await motivosColl.find().toArray();
   
     const filtro = req.params.titulo;
+
+    let filtroBd = {};
     if (filtro) {
-      motivos = motivos.filter(m => m.title.includes(filtro));
+      filtroBd = { title: { $regex: new RegExp(filtro) } };
     }
+
+    let motivos = await motivosColl.find( filtroBd ).toArray();
   
     if (motivos.length) {
       res.json(motivos);
