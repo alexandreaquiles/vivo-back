@@ -1,5 +1,6 @@
 import express from 'express';
 import fs from 'fs/promises';
+import cors from 'cors';
 
 const app = express();
 const port = 3000;
@@ -10,6 +11,7 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json());
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.send('Estou na Vivo!');
