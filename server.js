@@ -1,6 +1,13 @@
 import express from 'express';
 import fs from 'fs/promises';
 import cors from 'cors';
+import { MongoClient } from 'mongodb';
+
+const uri = "mongodb://admin:secret@127.0.0.1:27017/?authSource=admin";
+const client = new MongoClient(uri);
+const vivoDb = client.db('vivoDb');
+const motivos = vivoDb.collection('motivos');
+console.log(await motivos.find().toArray());
 
 const app = express();
 const port = 3000;
