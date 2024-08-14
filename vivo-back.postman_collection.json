@@ -94,9 +94,18 @@
 		},
 		{
 			"name": "/api/porque-a-vivo/66abdbef683e3e1c0a32c799",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
 			"request": {
 				"method": "PUT",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzIzNjcyMTEzLCJleHAiOjE3MjM2NzU3MTN9.ElL4T9Kq2x9_0M912Liuwb3vHfqwOo-Rl32MPjfm0Ho",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n    \"title\": \"O segredo da qualidade dos nossos serviços\",\n    \"description\": \"Investimos em tecnologia de ponta e atendimento eficaz para dar aos nossos clientes cada vez mais motivos para continuarem com a gente.\",\n    \"image\": \"../src/assets/images/why-us-quality.png\"\n}",
