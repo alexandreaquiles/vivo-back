@@ -62,6 +62,27 @@ app.post('/api/porque-a-vivo', async (req, res, next) => {
 
 });
 
+app.put('/api/porque-a-vivo/:id', async (req, res, next) => {
+
+  try {
+
+    const id = req.params.id;
+    const motivo = req.body;
+
+    if (!motivo || !motivo.title || !motivo.description) {
+      console.log(motivo);
+      res.sendStatus(400);
+    } else {
+      await motivosColl.replaceOne({ _id: id}, motivo );
+      res.sendStatus(200);
+    }
+
+  } catch(error) {
+    next(error);
+  }
+
+});
+
 app.use((err, req, res, next) => {
   console.error(err);
   res.status(500).send('Erro inesperado :/');
