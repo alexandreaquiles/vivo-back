@@ -2,6 +2,9 @@ import express from 'express';
 import fs from 'fs/promises';
 import cors from 'cors';
 import { MongoClient, ObjectId } from 'mongodb';
+import jwt from 'jsonwebtoken';
+
+const SECRET_KEY = 'meu_segredo';
 
 const uri = "mongodb://admin:secret@127.0.0.1:27017/?authSource=admin";
 const client = new MongoClient(uri);
@@ -113,6 +116,22 @@ app.delete('/api/porque-a-vivo/:id', async (req, res, next) => {
     next(error);
   }
 
+});
+
+app.post('/api/login', (req, res) => {
+  // Aqui você normalmente verificaria as credenciais no banco de dados
+  const { username, password } = req.body;
+  
+  if (username === 'admin' && password === '123') {
+    const token = jwt.sign(
+      { username, role: 'admin' },
+      SECRET_KEY,
+      { expiresIn: '1h' }
+    );
+    res.json({ token: token });
+  } else {
+    res.status(401).json({ message: 'Autenticação falhou' });
+  }
 });
 
 app.use((err, req, res, next) => {
