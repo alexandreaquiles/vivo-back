@@ -123,6 +123,66 @@
 			"response": []
 		},
 		{
+			"name": "/api/porque-a-vivo/66abdbef683e3e1c0a32c79b",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Navegue e fale sem medo de ficar sem sinal\",\n    \"description\": \"Cobrimos 97% da população com a nossa rede 4G e mais de 3.200 cidades com o 4.5G. Também já chegamos com o 5G em todas as capitais do Brasil.\",\n    \"image\": \"../src/assets/images/why-us-signal.png\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/porque-a-vivo/66abdbef683e3e1c0a32c79b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"porque-a-vivo",
+						"66abdbef683e3e1c0a32c79b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/porque-a-vivo/66abdbef683e3e1c0a32c79a",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n  \"title\": \"Os melhores produtos e serviços para você\",\n  \"description\": \"Temos planos de celular, internet, TV, telefone e combos. Além disso, trabalhamos constantemente para melhorar os benefícios que oferecemos.\",\n  \"image\": \"../src/assets/images/why-us-services.png\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/porque-a-vivo/66abdbef683e3e1c0a32c79a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"porque-a-vivo",
+						"66abdbef683e3e1c0a32c79a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "/api/porque-a-vivo/66abdbef683e3e1c0a32c79c",
 			"request": {
 				"method": "PATCH",
@@ -147,6 +207,48 @@
 						"api",
 						"porque-a-vivo",
 						"66abdbef683e3e1c0a32c79c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/porque-a-vivo/66abdbef683e3e1c0a32c79c",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/porque-a-vivo/66abdbef683e3e1c0a32c79c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"porque-a-vivo",
+						"66abdbef683e3e1c0a32c79c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/porque-a-vivo/66bbef8edb1fbcbd2d1a7c2d",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/porque-a-vivo/66bbef8edb1fbcbd2d1a7c2d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"porque-a-vivo",
+						"66bbef8edb1fbcbd2d1a7c2d"
 					]
 				}
 			},
