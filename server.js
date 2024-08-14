@@ -51,7 +51,7 @@ app.get('/api/porque-a-vivo/:titulo?', async (req, res, next) => {
 
 });
 
-app.post('/api/porque-a-vivo', async (req, res, next) => {
+app.post('/api/porque-a-vivo', authenticateToken, async (req, res, next) => {
 
   const novoMotivo = req.body;
 
@@ -65,7 +65,7 @@ app.post('/api/porque-a-vivo', async (req, res, next) => {
 
 });
 
-app.put('/api/porque-a-vivo/:id', async (req, res, next) => {
+app.put('/api/porque-a-vivo/:id', authenticateToken, async (req, res, next) => {
 
   try {
 
@@ -86,7 +86,7 @@ app.put('/api/porque-a-vivo/:id', async (req, res, next) => {
 
 });
 
-app.patch('/api/porque-a-vivo/:id', async (req, res, next) => {
+app.patch('/api/porque-a-vivo/:id', authenticateToken, async (req, res, next) => {
   try {
     const id = req.params.id;
     const novoTitulo = req.body.title;
@@ -103,7 +103,7 @@ app.patch('/api/porque-a-vivo/:id', async (req, res, next) => {
   }
 });
 
-app.delete('/api/porque-a-vivo/:id', async (req, res, next) => {
+app.delete('/api/porque-a-vivo/:id', authenticateToken, async (req, res, next) => {
 
   try {
 
@@ -133,6 +133,19 @@ app.post('/api/login', (req, res) => {
     res.status(401).json({ message: 'Autenticação falhou' });
   }
 });
+
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+
+  if (token == null) return res.sendStatus(401);
+
+  jwt.verify(token, SECRET_KEY, (err, user) => {
+    if (err) return res.sendStatus(403);
+    req.user = user;
+    next();
+  });
+}
 
 app.use((err, req, res, next) => {
   console.error(err);
