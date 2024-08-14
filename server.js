@@ -83,6 +83,23 @@ app.put('/api/porque-a-vivo/:id', async (req, res, next) => {
 
 });
 
+app.patch('/api/porque-a-vivo/:id', async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const novoTitulo = req.body.title;
+
+    if (!novoTitulo) {
+      res.sendStatus(400);
+    } else {
+      await motivosColl.updateOne({ _id: new ObjectId(id)},
+                                  { $set: { title: novoTitulo }} );
+      res.sendStatus(200);
+    }
+  } catch(error) {
+    next(error);
+  }
+});
+
 app.use((err, req, res, next) => {
   console.error(err);
   res.status(500).send('Erro inesperado :/');

@@ -93,6 +93,66 @@
 			"response": []
 		},
 		{
+			"name": "/api/porque-a-vivo/66abdbef683e3e1c0a32c799",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"O segredo da qualidade dos nossos serviços\",\n    \"description\": \"Investimos em tecnologia de ponta e atendimento eficaz para dar aos nossos clientes cada vez mais motivos para continuarem com a gente.\",\n    \"image\": \"../src/assets/images/why-us-quality.png\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/porque-a-vivo/66abdbef683e3e1c0a32c799",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"porque-a-vivo",
+						"66abdbef683e3e1c0a32c799"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/porque-a-vivo/66abdbef683e3e1c0a32c79c",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"title\": \"Suporte 24x7 e personalização do atendimento\" }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/porque-a-vivo/66abdbef683e3e1c0a32c79c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"porque-a-vivo",
+						"66abdbef683e3e1c0a32c79c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "/api/porque-a-vivo/batata",
 			"request": {
 				"method": "GET",
@@ -157,6 +217,64 @@
 					"path": [
 						"api",
 						"porque-a-vivo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/porque-a-vivo 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"title\": \"Compromisso com a sustentabilidade\",\n    \"description\": \"Somos uma operadora comprometida com o meio ambiente. Investimos em energia renovável, redução de emissões e reciclagem de equipamentos eletrônicos, contribuindo para um futuro mais sustentável.\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/porque-a-vivo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"porque-a-vivo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/planos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"300 Mega\",\n    \"price\": \"R$89,90/mês\",\n    \"details\": [\n      \"Internet Fibra 300 Mbps\",\n      \"Download até 300 Mbps\",\n      \"Upload até 150 Mbps\",\n      \"Vários apps inclusos*\",\n      \"Ideal para pequenas residências\"\n    ],\n    \"offer\": \"Oferta para novos clientes: 3 meses grátis\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/planos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"planos"
 					]
 				}
 			},
