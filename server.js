@@ -1,7 +1,7 @@
 import express from 'express';
 import fs from 'fs/promises';
 import cors from 'cors';
-import { MongoClient } from 'mongodb';
+import { MongoClient, ObjectId } from 'mongodb';
 
 const uri = "mongodb://admin:secret@127.0.0.1:27017/?authSource=admin";
 const client = new MongoClient(uri);
@@ -73,7 +73,7 @@ app.put('/api/porque-a-vivo/:id', async (req, res, next) => {
       console.log(motivo);
       res.sendStatus(400);
     } else {
-      await motivosColl.replaceOne({ _id: id}, motivo );
+      await motivosColl.replaceOne({ _id: new ObjectId(id)}, motivo );
       res.sendStatus(200);
     }
 
