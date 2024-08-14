@@ -100,6 +100,21 @@ app.patch('/api/porque-a-vivo/:id', async (req, res, next) => {
   }
 });
 
+app.delete('/api/porque-a-vivo/:id', async (req, res, next) => {
+
+  try {
+
+    const id = req.params.id;
+
+    await motivosColl.deleteOne({ _id: new ObjectId(id)});
+    res.sendStatus(200);
+
+  } catch(error) {
+    next(error);
+  }
+
+});
+
 app.use((err, req, res, next) => {
   console.error(err);
   res.status(500).send('Erro inesperado :/');
