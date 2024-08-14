@@ -34,7 +34,7 @@ app.get('/api/porque-a-vivo/:titulo?', async (req, res, next) => {
       filtroBd = { $text: { $search: filtro } };
     }
 
-    let motivos = await motivosColl.find( filtroBd ).toArray();
+    let motivos = await motivosColl.find( filtroBd, { sort: { title: 1 } } ).toArray();
   
     if (motivos.length) {
       res.json(motivos);
