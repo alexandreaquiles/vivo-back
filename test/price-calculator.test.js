@@ -19,6 +19,15 @@ describe('Annual price calculator', () => {
 
   });
 
+  it('should handle plans with different prices', () => {
+    const plan = {
+      title: "2 Gigas",
+      price: 750
+    };
+    const annualPrice = calculateAnnualPrice(plan);
+    expect(annualPrice).to.equal(9000); // 750 * 12 = 9000
+  });
+
   it('should calculate annual price with offer for 3 months', () => {
     const plan = {
       title: "500 Mega",

@@ -1,3 +1,3 @@
-export function calculateAnnualPrice () {
-    return 6000;
+export function calculateAnnualPrice (plan) {
+    return plan.price * 12;
 }
