@@ -1,3 +1,5 @@
+import { calculateAnnualPrice } from '../price-calculator.js';
+
 describe('Annual price calculator', () => {
 
   it('should calculate annual price without offer', () => {
