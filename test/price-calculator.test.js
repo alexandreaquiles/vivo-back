@@ -31,7 +31,7 @@ describe('Annual price calculator', () => {
   it('should calculate annual price with offer for 3 months', () => {
     const plan = {
       title: "500 Mega",
-      monthlyPrice: 120,
+      price: 120,
       offer: 30
     };
     const annualPrice = calculateAnnualPrice(plan);
