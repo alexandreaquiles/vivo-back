@@ -1,4 +1,5 @@
 import { calculateAnnualPrice } from '../price-calculator.js';
+import { expect } from 'chai';
 
 describe('Annual price calculator', () => {
 
@@ -14,7 +15,7 @@ describe('Annual price calculator', () => {
     const annualPrice = calculateAnnualPrice(plan);
 
     // assert
-    // ?????
+    expect(annualPrice).to.equal(6000); // 500 * 12 = 6000
 
   });
 
