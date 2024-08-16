@@ -17,6 +17,7 @@ describe('Why Us CRUD Testcontainers', () => {
     const uri = mongoDbContainer.getConnectionString();
     client = new MongoClient(uri, { directConnection: true});
     vivoDb = client.db(`vivoDb${Date.now()}`);
+    await vivoDb.collection('motivos').createIndex( { title: 'text'} )
     app = runApp(vivoDb);
   });
 
@@ -34,6 +35,14 @@ describe('Why Us CRUD Testcontainers', () => {
     expect(response.body).to.be.an('array').with.lengthOf(2);
     expect(response.body[0].title).to.equal('Motivo 1');
     expect(response.body[1].title).to.equal('Motivo 2');
+  });
+
+  it('should return 404 when no reasons are found', async () => {
+
+    const response = await request(app).get('/api/porque-a-vivo/nonexistent');
+
+    expect(response.status).to.equal(404);
+    expect(response.text).to.equal('Não encontrado: nonexistent');
   });
 
 });
