@@ -45,4 +45,14 @@ describe('Why Us CRUD Testcontainers', () => {
     expect(response.text).to.equal('Não encontrado: nonexistent');
   });
 
+  it('should return only one reason when GET /api/porque-a-vivo', async () => {
+    await vivoDb.collection('motivos').insertMany([{ title: 'Motivo 1' }]);
+
+    const response = await request(app).get('/api/porque-a-vivo');
+
+    expect(response.status).to.equal(200);
+    expect(response.body).to.be.an('array').with.lengthOf(1);
+    expect(response.body[0].title).to.equal('Motivo 1');
+  });
+
 });
