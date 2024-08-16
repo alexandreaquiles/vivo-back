@@ -26,6 +26,10 @@ describe('Why Us CRUD Testcontainers', () => {
     await mongoDbContainer.stop();
   });
 
+  beforeEach(async function () {
+    await vivoDb.collection('motivos').deleteMany({})
+  });
+
   it('should return reasons when GET /api/porque-a-vivo from a container DB', async () => {
     await vivoDb.collection('motivos').insertMany([{ title: 'Motivo 1' }, { title: 'Motivo 2' }]);
 
