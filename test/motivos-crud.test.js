@@ -34,7 +34,7 @@ describe('Why Us CRUD', () => {
     expect(response.body[1].title).to.equal('Motivo 2');
   });
 
-  it('should return 404 when no motivos are found', async () => {
+  it('should return 404 when no reasons are found', async () => {
     stubMotivosCollection.find.returns({
       toArray: sinon.stub().resolves([])
     });
