@@ -6,8 +6,6 @@ const SECRET_KEY = 'meu_segredo';
 
 function runApp(vivoDb) {
 
-  const motivosColl = vivoDb.collection('motivos');
-
   const app = express();
 
   app.use((req, res, next) => {
@@ -23,6 +21,7 @@ function runApp(vivoDb) {
   });
 
   app.get('/api/porque-a-vivo/:titulo?', async (req, res, next) => {
+    const motivosColl = vivoDb.collection('motivos');
 
     try {
 
@@ -48,6 +47,7 @@ function runApp(vivoDb) {
   });
 
   app.post('/api/porque-a-vivo', authenticateToken, async (req, res, next) => {
+    const motivosColl = vivoDb.collection('motivos');
 
     const novoMotivo = req.body;
 
@@ -62,6 +62,7 @@ function runApp(vivoDb) {
   });
 
   app.put('/api/porque-a-vivo/:id', authenticateToken, async (req, res, next) => {
+    const motivosColl = vivoDb.collection('motivos');
 
     try {
 
@@ -83,6 +84,8 @@ function runApp(vivoDb) {
   });
 
   app.patch('/api/porque-a-vivo/:id', authenticateToken, async (req, res, next) => {
+    const motivosColl = vivoDb.collection('motivos');
+
     try {
       const id = req.params.id;
       const novoTitulo = req.body.title;
@@ -100,6 +103,7 @@ function runApp(vivoDb) {
   });
 
   app.delete('/api/porque-a-vivo/:id', authenticateToken, async (req, res, next) => {
+    const motivosColl = vivoDb.collection('motivos');
 
     try {
 
