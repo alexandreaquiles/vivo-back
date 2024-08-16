@@ -4,8 +4,8 @@ import { runApp } from '../app.js';
 
 const app = runApp();
 
-describe('Basic API', function () {
-  it('should GET / and greet', async function () {
+describe('Basic API', () => {
+  it('should GET / and greet', async () => {
 
     const response = await request(app).get('/');
 
