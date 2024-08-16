@@ -20,6 +20,7 @@
   },
   "type": "module",
   "devDependencies": {
+    "@testcontainers/mongodb": "^10.11.0",
     "c8": "^10.1.2",
     "chai": "^5.1.1",
     "mocha": "^10.7.3",
