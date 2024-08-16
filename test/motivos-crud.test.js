@@ -39,10 +39,10 @@ describe('Why Us CRUD', () => {
       toArray: sinon.stub().resolves([])
     });
 
-    const res = await request(app).get('/api/porque-a-vivo/nonexistent');
+    const response = await request(app).get('/api/porque-a-vivo/nonexistent');
 
-    expect(res.status).to.equal(404);
-    expect(res.text).to.equal('Não encontrado: nonexistent');
+    expect(response.status).to.equal(404);
+    expect(response.text).to.equal('Não encontrado: nonexistent');
   });
 
 });
