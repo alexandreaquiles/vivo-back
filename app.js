@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import jwt from 'jsonwebtoken';
 import { logging } from './middlewares/logging.js'
+import { errorHandling } from './middlewares/errors.js';
 
 const SECRET_KEY = 'meu_segredo';
 
@@ -144,10 +145,7 @@ function runApp(vivoDb) {
     });
   }
 
-  app.use((err, req, res, next) => {
-    console.error(err);
-    res.status(500).send('Erro inesperado :/');
-  });
+  app.use(errorHandling);
 
   return app;
 }
