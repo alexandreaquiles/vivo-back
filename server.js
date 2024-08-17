@@ -1,4 +1,4 @@
-import { MongoClient, ObjectId } from 'mongodb';
+import { MongoClient } from 'mongodb';
 import { runApp } from './app.js';
 
 const uri = "mongodb://admin:secret@127.0.0.1:27017/?authSource=admin";

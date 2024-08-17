@@ -1,10 +1,10 @@
 import express from 'express';
 import cors from 'cors';
-import jwt from 'jsonwebtoken';
+import { ObjectId } from 'mongodb';
+
 import { logging } from './middlewares/logging.js'
 import { errorHandling } from './middlewares/errors.js';
-
-const SECRET_KEY = 'meu_segredo';
+import { authenticateToken, createToken } from './middlewares/auth.js';
 
 function runApp(vivoDb) {
 
@@ -121,29 +121,12 @@ function runApp(vivoDb) {
     const { username, password } = req.body;
 
     if (username === 'admin' && password === '123') {
-      const token = jwt.sign(
-        { username, role: 'admin' },
-        SECRET_KEY,
-        { expiresIn: '1h' }
-      );
+      const token = createToken(username);
       res.json({ token: token });
     } else {
       res.status(401).json({ message: 'Autenticação falhou' });
     }
   });
-
-  function authenticateToken(req, res, next) {
-    const authHeader = req.headers['authorization'];
-    const token = authHeader && authHeader.split(' ')[1];
-
-    if (token == null) return res.sendStatus(401);
-
-    jwt.verify(token, SECRET_KEY, (err, user) => {
-      if (err) return res.sendStatus(403);
-      req.user = user;
-      next();
-    });
-  }
 
   app.use(errorHandling);
 
