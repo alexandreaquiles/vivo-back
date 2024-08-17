@@ -1,11 +1,12 @@
 import { MongoClient } from 'mongodb';
 import { runApp } from './app.js';
+import 'dotenv/config';
 
-const uri = "mongodb://admin:secret@127.0.0.1:27017/?authSource=admin";
-const client = new MongoClient(uri);
+const mongoUri = process.env.DATABASE_URL;
+const port = process.env.PORT || 3000;
+
+const client = new MongoClient(mongoUri);
 const vivoDb = client.db('vivoDb');
-
-const port = 3000;
 
 const app = runApp(vivoDb);
 
