@@ -4,7 +4,8 @@ import { ObjectId } from 'mongodb';
 
 import { logging } from './middlewares/logging.js'
 import { errorHandling } from './middlewares/errors.js';
-import { authenticateToken, createToken } from './middlewares/auth.js';
+import { authenticateToken } from './middlewares/auth.js';
+import { authRoutes } from './routes/auth-routes.js';
 
 function runApp(vivoDb) {
 
@@ -116,17 +117,7 @@ function runApp(vivoDb) {
 
   });
 
-  app.post('/api/login', (req, res) => {
-    // Aqui você normalmente verificaria as credenciais no banco de dados
-    const { username, password } = req.body;
-
-    if (username === 'admin' && password === '123') {
-      const token = createToken(username);
-      res.json({ token: token });
-    } else {
-      res.status(401).json({ message: 'Autenticação falhou' });
-    }
-  });
+  app.use('/api', authRoutes());
 
   app.use(errorHandling);
 
