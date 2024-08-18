@@ -2,7 +2,7 @@
   "name": "vivo-back",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "node server.js",
     "test": "mocha",
